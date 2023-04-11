@@ -42,24 +42,15 @@ fun MainScreen(
                 )
                 Spacer(modifier = Modifier.height(150.dp))
                 Image(
-                    painter = painterResource(id = R.drawable.ic_digimon_logo),
-                    contentDescription = "Digimon",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .align(CenterHorizontally)
-                        .size(150.dp)
-                        .clickable {
-                            navController.navigate("digimon_screen")
-                        }
-                )
-                Spacer(modifier = Modifier.height(150.dp))
-                Image(
                     painter = painterResource(id = R.drawable.ic_pokemon_logo),
                     contentDescription = "Digimon",
                     modifier = Modifier
                         .fillMaxWidth()
                         .align(CenterHorizontally)
                         .size(150.dp)
+                        .clickable {
+                            navController.navigate("pokemon_tcg_screen")
+                        }
                 )
             }
         }

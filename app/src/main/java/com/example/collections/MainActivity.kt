@@ -7,7 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.collections.ui.MainScreen
-import com.example.collections.ui.digimon.DigimonScreen
+import com.example.collections.ui.pokemon.PokemonTCGScreen
 import com.example.collections.ui.theme.CollectionsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,8 +25,8 @@ class MainActivity : ComponentActivity() {
                     composable("main_screen") {
                         MainScreen(navController = navController)
                     }
-                    composable("digimon_screen") {
-                        DigimonScreen(navController = navController)
+                    composable("pokemon_tcg_screen") {
+                        PokemonTCGScreen(navController = navController)
                     }
                 }
             }
