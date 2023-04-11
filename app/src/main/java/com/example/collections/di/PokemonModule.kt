@@ -1,7 +1,8 @@
 package com.example.collections.di
 
-import com.example.collections.data.remote.DigimonApi
-import com.example.collections.repository.DigimonRepository
+import com.example.collections.data.local.TCGDao
+import com.example.collections.data.remote.PokemonApi
+import com.example.collections.repository.PokemonRepository
 import com.example.collections.util.Constants
 import dagger.Module
 import dagger.Provides
@@ -13,17 +14,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 @InstallIn(ViewModelComponent::class)
-object DigimonModule {
+object PokemonModule {
 
     @Provides
-    fun provideDigimonRepository(api: DigimonApi) = DigimonRepository(api)
+    fun providePokemonRepository(api: PokemonApi, tcgDao: TCGDao): PokemonRepository {
+        return PokemonRepository(api, tcgDao)
+    }
 
     @Provides
-    fun provideApiService(): DigimonApi {
+    fun provideApiService(): PokemonApi {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(Constants.DIGIMON_URL)
+            .baseUrl(Constants.POKEMON_TCG_URL)
             .build()
-            .create(DigimonApi::class.java)
+            .create(PokemonApi::class.java)
     }
 }
