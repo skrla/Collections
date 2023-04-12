@@ -1,4 +1,4 @@
-package com.example.collections.ui
+package com.example.collections.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

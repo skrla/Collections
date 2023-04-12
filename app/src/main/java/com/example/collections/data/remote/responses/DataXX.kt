@@ -7,9 +7,9 @@ data class DataXX(
     @SerializedName("artist")
     val artist: String,
     @SerializedName("attacks")
-    val attacks: List<AttackX>,
+    val attacks: List<Attack>,
     @SerializedName("cardmarket")
-    val cardmarket: CardmarketX,
+    val cardmarket: Cardmarket,
     @SerializedName("convertedRetreatCost")
     val convertedRetreatCost: Int,
     @SerializedName("hp")
@@ -17,9 +17,9 @@ data class DataXX(
     @SerializedName("id")
     val id: String,
     @SerializedName("images")
-    val images: ImagesXXX,
+    val images: Images,
     @SerializedName("legalities")
-    val legalities: LegalitiesXX,
+    val legalities: Legalities,
     @SerializedName("level")
     val level: String,
     @SerializedName("name")
@@ -31,19 +31,19 @@ data class DataXX(
     @SerializedName("rarity")
     val rarity: String,
     @SerializedName("resistances")
-    val resistances: List<ResistanceX>,
+    val resistances: List<Resistance>,
     @SerializedName("retreatCost")
     val retreatCost: List<String>,
     @SerializedName("set")
-    val `set`: SetX,
+    val cardSet: Set,
     @SerializedName("subtypes")
     val subtypes: List<String>,
     @SerializedName("supertype")
     val supertype: String,
     @SerializedName("tcgplayer")
-    val tcgplayer: TcgplayerX,
+    val tcgplayer: Tcgplayer,
     @SerializedName("types")
     val types: List<String>,
     @SerializedName("weaknesses")
-    val weaknesses: List<WeaknesseX>
+    val weaknesses: List<Weaknesse>
 )

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class PricesXXX(
     @SerializedName("holofoil")
-    val holofoil: HolofoilX,
+    val holofoil: Holofoil,
     @SerializedName("reverseHolofoil")
-    val reverseHolofoil: ReverseHolofoilX
+    val reverseHolofoil: ReverseHolofoil
 )

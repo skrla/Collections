@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Holofoil(
     @SerializedName("directLow")
-    val directLow: Double,
+    val directLow: Any,
     @SerializedName("high")
     val high: Double,
     @SerializedName("low")

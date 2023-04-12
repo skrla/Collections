@@ -47,7 +47,7 @@ data class Data(
     @SerializedName("rules")
     val rules: List<String>,
     @SerializedName("set")
-    val `set`: Set,
+    val cardSet: Set,
     @SerializedName("subtypes")
     val subtypes: List<String>,
     @SerializedName("supertype")

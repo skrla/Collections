@@ -7,9 +7,9 @@ data class DataX(
     @SerializedName("id")
     val id: String,
     @SerializedName("images")
-    val images: ImagesXX,
+    val images: ImagesX,
     @SerializedName("legalities")
-    val legalities: LegalitiesX,
+    val legalities: Legalities,
     @SerializedName("name")
     val name: String,
     @SerializedName("printedTotal")

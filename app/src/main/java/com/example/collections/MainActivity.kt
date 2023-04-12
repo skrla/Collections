@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.collections.ui.MainScreen
-import com.example.collections.ui.pokemon.PokemonTCGScreen
+import com.example.collections.presentation.MainScreen
+import com.example.collections.presentation.pokemon.PokemonTCGScreen
 import com.example.collections.ui.theme.CollectionsTheme
 import dagger.hilt.android.AndroidEntryPoint
 

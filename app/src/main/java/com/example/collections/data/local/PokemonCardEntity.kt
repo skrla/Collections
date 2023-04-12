@@ -1,10 +1,10 @@
-package com.example.collections.data.local.models
+package com.example.collections.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "pokemon_tcg")
-data class PokemonCardsList(
+data class PokemonCardEntity(
     @PrimaryKey(autoGenerate = false)
     val id: String,
     val name: String,
