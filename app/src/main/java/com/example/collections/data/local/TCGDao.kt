@@ -1,19 +1,19 @@
 package com.example.collections.data.local
 
 import androidx.room.*
-import com.example.collections.data.local.models.PokemonCardsList
 import kotlinx.coroutines.flow.Flow
 
 
 @Dao
-interface TCGDao {
+interface  TCGDao {
 
-    @Query("SELECT * FROM pokemon_tcg")
-    fun getPokemonTCGData(): Flow<List<PokemonCardsList>>
-
-    @Upsert
-    suspend fun upsertPokemonCard(pokemonCardsList: PokemonCardsList)
+    @Transaction
+    @Query("SELECT * FROM pokemon_tcg WHERE UPPER(name) LIKE UPPER(:query) || '%' ")
+    fun getPokemonTCGData(query: String): Flow<List<PokemonCardEntity>>
 
     @Upsert
-    suspend fun upsertAllPokemonCards(pokemonCardsList: List<PokemonCardsList>)
+    suspend fun upsertPokemonCard(pokemonCardEntity: PokemonCardEntity)
+
+    @Upsert
+    suspend fun upsertAllPokemonCards(pokemonCardEntity: List<PokemonCardEntity>)
 }

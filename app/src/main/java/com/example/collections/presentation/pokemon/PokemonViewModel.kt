@@ -1,4 +1,4 @@
-package com.example.collections.ui.pokemon
+package com.example.collections.presentation.pokemon
 
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
@@ -8,13 +8,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.palette.graphics.Palette
+import com.example.collections.data.mappers.toPokemonCardsList
 import com.example.collections.data.remote.responses.PokemonTCG
 import com.example.collections.repository.PokemonRepository
 import com.example.collections.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,7 +24,14 @@ class PokemonViewModel @Inject constructor(private val repository: PokemonReposi
     private var page = 1
     private var total = 0
 
-    var pokemonCardsList = repository.getPokemonTCGData().stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
+    var search = MutableStateFlow("")
+
+    var pokemonCardsList = search.flatMapLatest { searchValue ->
+        repository.getPokemonTCGData(searchValue)
+    .map {
+            card -> card.map { it.toPokemonCardsList() } }
+    }
+    .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
     var loadError = mutableStateOf("")
     var isLoading = mutableStateOf(false)
     var endReached = mutableStateOf(false)
@@ -75,4 +82,5 @@ class PokemonViewModel @Inject constructor(private val repository: PokemonReposi
             loadPokemonCardsApi()
         }
     }
+
 }
