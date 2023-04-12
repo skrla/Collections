@@ -14,7 +14,7 @@ interface PokemonApi {
     ) : PokemonTCG
 
     @GET("cards/{id}")
-    suspend fun getPokemonInfo(@Path("name") name: String): PokemonCard
+    suspend fun getPokemonCardInfo(@Path("name") name: String): PokemonCard
 
 
 }

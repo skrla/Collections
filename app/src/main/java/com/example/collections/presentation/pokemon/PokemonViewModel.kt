@@ -13,6 +13,7 @@ import com.example.collections.data.remote.responses.PokemonTCG
 import com.example.collections.repository.PokemonRepository
 import com.example.collections.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -26,6 +27,7 @@ class PokemonViewModel @Inject constructor(private val repository: PokemonReposi
 
     var search = MutableStateFlow("")
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     var pokemonCardsList = search.flatMapLatest { searchValue ->
         repository.getPokemonTCGData(searchValue)
     .map {
